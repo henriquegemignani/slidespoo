@@ -20,6 +20,34 @@
 \frame{\titlepage}
 
 %-------------------------------------
+\section{0. História!}
+%-------------------------------------
+
+\frame{
+  \begin{center}
+    \Huge Um pouco de história...
+  \end{center}
+}
+
+\frame{
+  Objective-C e C++ são "forks" da linguagem C com a implementação de POO, criadas em 1983.
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        \textbf{C++} 
+      \end{center}
+      Implementação com código mais estático de POO, com foco em desempenho.
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        \textbf{Objective-C}
+      \end{center}
+      Muito próxima do smalltalk-80 tanto em sintaxe quanto em dinâmismo.
+    \end{column}
+  \end{columns}
+}
+
+%-------------------------------------
 \section{1. Semelhanças}
 %-------------------------------------
 
@@ -33,6 +61,10 @@
   \begin{itemize}
     \item Extensões de C: código em C pode ser compilado como Objective-C ou C++
     \item Suporte a programação orientada a objetos.
+    \item Declaração e código podem ser misturados.
+    \item Separação da declaração dos headers em 2 arquivos.
+    \item Atributos \textit{public}, \textit{private}, \textit{protected}.
+    \item Referênciação de memória.
   \end{itemize}
 }
 
@@ -40,88 +72,5 @@
 \subsection{Fundamentos}
 %-------------------------------------
 
-\frame{\begin{center}
-\Huge Fundamentos
-\end{center}}
-
-\frame{
-  \frametitle{Snapshots, não diferenças}
-  O Git, diferente de outros controles de versões que salvam os arquivos e as modificações entre os commits, 
-  o Git \, a cada commit, o estado atual de cada arquivo.
-}
-
-\frame{
-  \frametitle{Trabalho Local}
-  Quase todo trabalho do Git é local. Isso significa que ele não precisa de comunicação constante com algum servidor
-  remoto, como é normal em outros CVs. Essa liberdade garante que os usuários não fiquem dependentes de internet ou 
-  intranet para trabalhar.
-}
-
-\frame{
-  \frametitle{Integridade}
-  Todo arquivo que está sob os cuidados do Git recebe um checksum ( soma de verificação ). Olhando para esse checksum,
-  o Git sabe se algum arquivo ou diretório foi modificado, tornando impossível modificações obscuras.
-}
-
-\frame{
-  \frametitle{Adição de dados (geralmente...)}
-  Quase todas as ações do Git tem como finalidade adicionar dados na database do projeto. Depois que algo foi 
-  incorporado em um repositório, é quase impossível tirá-lo de lá.
-}
-
-\frame{
-  \frametitle{3 Estados}
-  Todo e qualquer arquivos que está no Git tem 3 possíveis estados:
-  \begin{itemize}
-    \item Committed - Significa que as modanças feitas no arquivo estão salvas na database do Git.
-    \item Modificado - Significa que o arquivo foi modificado.
-    \item Staged - Significa que as mudanças atuais no arquivos seram inclusas no próximo commit.
-  \end{itemize}
-}
-
-\frame{
-  \frametitle{3 Estados}
-  %Enfiar imagem aqui.
-  Esses 3 estados fazem com que um repositório local do Git seja separado em 3 seções:
-  \begin{itemize}
-    \item Git directory - Onde todos os arquivos vitais e a database do Git estão.
-    \item Working directory - É uma instância de uma versão do seu projeto.
-    \item Staging area - Um arquivo que contêm todas as modificações que entrarão no próximo commit.
-  \end{itemize}
-}
-
-\frame{
-  \frametitle{3 Estados}
-  O processo de trabalho com o Git pode ser resumido a:
-  \begin{enumerate}
-    \item Você modifica os arquivos no seu working directory.
-    \item Você adiciona as modificações na staging area.
-    \item Você commita, aicionando permanentemente as modificações no seu Git directory. 
-  \end{enumerate}
-}
-
-%-------------------------------------
-\subsection{Instalação e Configuração}
-%-------------------------------------
-
-\frame{
-  \frametitle{Instalação}
-  Para instalar o Git, vamos seguir o tutorial do GitHub =D
-}
-
-\begin{frame}[fragile]
-  \frametitle{Configuração}
-  O Git permite uma variedade de configurações. Podemos modificá-las usando o comando:
-  \begin{block}{}
-    \verb#$ git config#
-  \end{block}
-  \pause
-  Duas configurações que temos que modificar depois de instalar o Git são:
-  \begin{block}{}
-      \verb#$ git config --global user.name "José da Silva"# \\
-      \verb#$ git config --global user.email josé@silva.com.br#
-  \end{block}
-  Temos que mudar essas configurações pois o Git usam elas para gerar as mensagens de commit.
-\end{frame}
 
 \end{document}
