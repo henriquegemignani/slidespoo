@@ -240,4 +240,41 @@
   \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+  O Objective-C tem a mesma base de mensagens do Smalltalk, com uma diferença na declaração da mensagem. \\
+  \lstset{language=C++,basicstyle=\scriptsize}
+  \begin{lstlisting}
+    -(void) insertObject:(id)anObject:(unsigned int)index
+    
+    //use with a "shelf" instance of the Array class 
+    //and a "book" object
+    [shelf insertObject:book:2];
+    =============================================================
+    -(void) insertObject:(id)anObject atIndex:(unsigned int)index
+    
+    //use with a "shelf" instance of the Array class 
+    //and a "book" object
+    [shelf insertObject:book:2]; //Error !
+    [shelf insertObject:book atIndex:2]; //OK
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  Não é possivel chamar um método que não existe em uma classe no C++, o programa nem é compilado. \\
+  Já no Objective-C é totalmente possível, e um objeto que não implementa uma mensagem devolve uma Exception específica.
+\end{frame}
+
+\begin{frame}
+  Assim como o \textit{this} no C++, utilizado para referênciar o objeto atual, temos o \textit{self} no Objective-C. \\
+  O \textit{self} não é uma palavra reservada, mas sim um atributo da classe raiz! \\
+  No Objective-C a palavra reservada \textit{super} é utilizada para passar mensagems para a classe pai. \\
+  Como no C++ temos herança múzltipla, utilizamos o nome da classe pai para ter o mesmo efeito.
+\end{frame}
+
+\begin{frame}
+  No C++ a assinatura de um método é composta do seu nome e parâmetros ( alêm da presença do modificador \textit{const} ). \\
+  Dado isso o C++ consegue implementar o overload de métodos. \\
+  O Objective-C também consegue, mas para tanto os métodos devem ter labels diferentes para seus atributos.
+\end{frame}
+
 \end{document}
