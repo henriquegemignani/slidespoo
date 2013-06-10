@@ -180,6 +180,23 @@
     class Foo { 
       Bar* bar; 
       public:
+\begin{frame}[fragile]
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+        \begin{center}
+            C++
+        \end{center}
+        Objetos podem ser alocados na pilha como uma variável local, ou dinamicamente com o operador \textit{new}.
+    \end{column}
+    \begin{column}{.5\textwidth}
+        \begin{center}
+            Objective-C
+        \end{center}
+        Todos os objetos são alocados dinamicamente, enviando a mensagem \textit{alloc} para a classe.
+    \end{column}
+  \end{columns}
+\end{frame}
+
         void userBar(void);
     };
   \end{lstlisting}
