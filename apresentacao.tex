@@ -266,7 +266,7 @@
 \begin{frame}
   Assim como o \textit{this} no C++, utilizado para referênciar o objeto atual, temos o \textit{self} no Objective-C. \\
   O \textit{self} não é uma palavra reservada, mas sim um atributo da classe raiz! \\
-  No Objective-C a palavra reservada \textit{super} é utilizada para passar mensagems para a classe pai. \\
+  No Objective-C a palavra reservada \textit{super} é utilizada para passar mensagens para a classe pai. \\
   Como no C++ temos herança múzltipla, utilizamos o nome da classe pai para ter o mesmo efeito.
 \end{frame}
 
@@ -274,6 +274,40 @@
   No C++ a assinatura de um método é composta do seu nome e parâmetros ( alêm da presença do modificador \textit{const} ). \\
   Dado isso o C++ consegue implementar o overload de métodos. \\
   O Objective-C também consegue, mas para tanto os métodos devem ter labels diferentes para seus atributos.
+\end{frame}
+
+\begin{frame}[fragile]
+  Assim como em C, o C++ tem ponteiros para funções:
+  \lstset{language=C++,basicstyle=\scriptsize}
+  \begin{lstlisting}
+    class Foo
+    {
+      public:
+      int f(float x) {...}
+    };
+    Foo bar
+    int (Foo::*p_f)(float) = &Foo::f; //Pointer to Foo::f
+    (bar.*p_f)(1.2345); //calling bar.f(1.2345);
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  No Objective-C um novo tipo é introduzido, o \textit{Selector}. \\
+  Esse tipo é transformado numa \textit{string} utilizando uma tabela de métodos criada na compilação de uma classe. \\
+  Com isso podemos verificar a existência dos métodos de uma classe.
+\end{frame}
+
+\begin{frame}
+  É possível definir valores padrões para os parâmetros de métodos em C++.\\
+  Isso não é possível em Objective-C. \\
+\end{frame}
+
+\begin{frame}
+  Em C++ podemos declarar parâmetros anônimos no protótipo de um método, mas em Objective-C isso é impossível.
+\end{frame}
+
+\begin{frame}
+  O Objective-C aceita mensagens para o objeto \textit{nil}. Essas mensagens são ignoradas.
 \end{frame}
 
 %-------------------------------------
