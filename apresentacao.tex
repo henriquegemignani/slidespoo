@@ -69,7 +69,11 @@
 }
 
 %-------------------------------------
-\subsection{Sintaxe C++}
+\section{2. Classes}
+%-------------------------------------
+
+%-------------------------------------
+\subsection{Sintaxe}
 %-------------------------------------
 
 \begin{frame}[fragile]
@@ -155,6 +159,83 @@
       \end{lstlisting}
     \end{column}
   \end{columns}
+\end{frame}
+
+\begin{frame}
+  A principal diferença entre as Classes do Objective-C para as do C++ é a existência de uma classe
+  raiz no Objective-C.
+\end{frame}
+
+%-------------------------------------
+\subsection{Foward Declaration}
+%-------------------------------------
+
+\begin{frame}[fragile]
+  No C++ podemos usar uma classe não completamente definida usando uma declaração avançada dela. \\
+  \lstset{language=C++,basicstyle=\tiny}
+  \begin{lstlisting}
+    class Bar; //forward declaration 
+    class Foo { 
+      Bar* bar; 
+      public:
+        void userBar(void);
+    };
+  \end{lstlisting}
+  No Objective-C o mesmo efeito é obtido usando a palavra reservada \textit{@class}.
+  \lstset{language=C++,basicstyle=\tiny}
+  \begin{lstlisting}
+    @class Bar; //forward declaration 
+    @interface Foo : NSObject { 
+      Bar* bar; 
+    }
+    -(void) userBar;
+  \end{lstlisting}
+\end{frame}
+
+%-------------------------------------
+\subsection{Public, Private, Protected}
+%-------------------------------------
+
+\begin{frame}
+  Nas duas linguagens os conceitos de \textit{public}, \textit{private} e \textit{proteced} existem. \\
+  Em C++, tanto métodos quanto atributos podem receber esses modificadores. O padrão é private. \\
+  Em Objective-C só atributos podem ser modificados. O padrão é protected. Os métodos sção publicos.
+\end{frame}
+
+\begin{frame}
+  Uma maneira de contornar esse problema é implementar os métodos "privados" sem declará-los na interface. \\
+  Os métodos ainda poderam ser chamados, mas sua existência está escondida. \\
+  Ainda nesse assunto, o Objective-C só implementa heranças publicas.
+\end{frame}
+
+%-------------------------------------
+\subsection{Static}
+%-------------------------------------
+
+\begin{frame}
+  Em C++ podemos declarar atributos ou métodos com o modificador \textit{static}. Assim eles passam a ser de classe. \\
+  O Objective-C não tem suporte direto a essa ideia, mas é possível atingir o mesmo resultado criando uma variável global 
+  na implementação e utilizando seus métodos para modificar essa variável.
+\end{frame}
+
+\begin{frame}
+  Para criar um método de classe em Objective-C é só acrescentar o símbolo '+' na frente da sua declaração, no lugar do '-'.
+\end{frame}
+
+%-------------------------------------
+\subsection{Métodos}
+%-------------------------------------
+
+\begin{frame}[fragile]
+  O código abaixo exemplifica a criação e chamada de um método:
+  \lstset{language=C++,basicstyle=\tiny}
+  \begin{lstlisting}
+    //prototype
+    void Array::insertObject(void *anObject, unsigned int atIndex)
+    
+    //use with a "shelf" instance of the Array class and a "book" object
+    shelf.insertObject(book, 2);
+  \end{lstlisting}
 \end{frame}
 
 \end{document}
