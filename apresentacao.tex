@@ -69,8 +69,38 @@
 }
 
 %-------------------------------------
-\subsection{Fundamentos}
+\subsection{Sintaxe C++}
 %-------------------------------------
 
+point2d.h
+\lstset{language=C++,basicstyle=\footnotesize}
+\begin{lstlisting}
+class Point2D {
+  public:
+    Point2D();
+
+    float x();
+    float y();
+
+    Point2D Add(Point2D right);
+
+  private:
+    float x_;
+    float y_;
+};
+\end{lstlisting}
+
+point2d.cc
+\lstset{language=C++,basicstyle=\footnotesize}
+\begin{lstlisting}
+Point2D::Point2D() { ... }
+
+float Point2D::x() { return x_; }
+float Point2D::y() { return y_; }
+
+Point2D Point2D::Add(Point2D right) {
+    return ...
+}
+\end{lstlisting}
 
 \end{document}
