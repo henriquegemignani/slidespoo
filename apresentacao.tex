@@ -120,4 +120,33 @@
   \end{columns}
 \end{frame}
 
+
+
+\subsection{Sintaxe Objective-C}
+point2d.h
+\lstset{language=Objective-C,basicstyle=\footnotesize}
+\begin{lstlisting}
+@interface Point2D {
+    float x;
+    float y;
+}
+
+-(float) x;
+-(float) y;
+\end{lstlisting}
+
+point2d.m
+\lstset{language=Objective-C,basicstyle=\footnotesize}
+\begin{lstlisting}
+Point2D::Point2D() { ... }
+
+float Point2D::x() { return x_; }
+float Point2D::y() { return y_; }
+
+Point2D Point2D::Add(Point2D right) {
+    return ...
+}
+\end{lstlisting}
+
+
 \end{document}
