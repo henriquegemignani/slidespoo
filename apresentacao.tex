@@ -102,51 +102,59 @@
       \end{center}
       \lstset{language=C++,basicstyle=\tiny}
       \begin{lstlisting}
-        class Point2D {
-          public:
-            Point2D();
+        @interface Point2D {
+            float x;
+            float y;
+        }
 
-            float x();
-            float y();
-
-            Point2D Add(Point2D& right);
-
-          private:
-            float x_;
-            float y_;
-        };
+        -(float) x;
+        -(float) y;
+        
+        -(Point2D*) add: (Point2D*)right;
+        @end
       \end{lstlisting}
     \end{column}
   \end{columns}
 \end{frame}
 
+\begin{frame}[fragile]
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        C++ \\
+        point2d.cc
+      \end{center}
+      \lstset{language=C++,basicstyle=\tiny}
+      \begin{lstlisting}
+        Point2D::Point2D() { ... }
 
+        float Point2D::x() { return x_; }
+        float Point2D::y() { return y_; }
 
-\subsection{Sintaxe Objective-C}
-point2d.h
-\lstset{language=Objective-C,basicstyle=\footnotesize}
-\begin{lstlisting}
-@interface Point2D {
-    float x;
-    float y;
-}
+        Point2D Point2D::Add(Point2D right) {
+            return ...
+        }
+      \end{lstlisting}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        Objective-C \\
+        point2d.m
+      \end{center}
+      \lstset{language=C++,basicstyle=\tiny}
+      \begin{lstlisting}
+        @implementation Point2D
+        -(float) x { return self->x; }
+        -(float) y { return self->x; }
 
--(float) x;
--(float) y;
-\end{lstlisting}
+        -(Point2D*) add: (Point2D*) right {
+            return ...;
+        }
 
-point2d.m
-\lstset{language=Objective-C,basicstyle=\footnotesize}
-\begin{lstlisting}
-Point2D::Point2D() { ... }
-
-float Point2D::x() { return x_; }
-float Point2D::y() { return y_; }
-
-Point2D Point2D::Add(Point2D right) {
-    return ...
-}
-\end{lstlisting}
-
+        @end
+      \end{lstlisting}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 \end{document}
