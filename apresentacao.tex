@@ -72,35 +72,52 @@
 \subsection{Sintaxe C++}
 %-------------------------------------
 
-point2d.h
-\lstset{language=C++,basicstyle=\footnotesize}
-\begin{lstlisting}
-class Point2D {
-  public:
-    Point2D();
+\begin{frame}[fragile]
+  point2d.h
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        C++
+      \end{center}
+      \lstset{language=C++,basicstyle=\tiny}
+      \begin{lstlisting}
+        class Point2D {
+          public:
+            Point2D();
 
-    float x();
-    float y();
+            float x();
+            float y();
 
-    Point2D Add(Point2D right);
+            Point2D Add(Point2D& right);
 
-  private:
-    float x_;
-    float y_;
-};
-\end{lstlisting}
+          private:
+            float x_;
+            float y_;
+        };
+      \end{lstlisting}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{center}
+        Objective-C
+      \end{center}
+      \lstset{language=C++,basicstyle=\tiny}
+      \begin{lstlisting}
+        class Point2D {
+          public:
+            Point2D();
 
-point2d.cc
-\lstset{language=C++,basicstyle=\footnotesize}
-\begin{lstlisting}
-Point2D::Point2D() { ... }
+            float x();
+            float y();
 
-float Point2D::x() { return x_; }
-float Point2D::y() { return y_; }
+            Point2D Add(Point2D& right);
 
-Point2D Point2D::Add(Point2D right) {
-    return ...
-}
-\end{lstlisting}
+          private:
+            float x_;
+            float y_;
+        };
+      \end{lstlisting}
+    \end{column}
+  \end{columns}
+\end{frame}
 
 \end{document}
