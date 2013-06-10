@@ -180,23 +180,6 @@
     class Foo { 
       Bar* bar; 
       public:
-\begin{frame}[fragile]
-  \begin{columns}
-    \begin{column}{.5\textwidth}
-        \begin{center}
-            C++
-        \end{center}
-        Objetos podem ser alocados na pilha como uma variável local, ou dinamicamente com o operador \textit{new}.
-    \end{column}
-    \begin{column}{.5\textwidth}
-        \begin{center}
-            Objective-C
-        \end{center}
-        Todos os objetos são alocados dinamicamente, enviando a mensagem \textit{alloc} para a classe.
-    \end{column}
-  \end{columns}
-\end{frame}
-
         void userBar(void);
     };
   \end{lstlisting}
@@ -218,13 +201,12 @@
 \begin{frame}
   Nas duas linguagens os conceitos de \textit{public}, \textit{private} e \textit{proteced} existem. \\
   Em C++, tanto métodos quanto atributos podem receber esses modificadores. O padrão é private. \\
-  Em Objective-C só atributos podem ser modificados. O padrão é protected. Os métodos sção publicos.
+  Em Objective-C só atributos podem ser modificados, com padrão sendo protected. Todos métodos são públicos.
 \end{frame}
 
 \begin{frame}
-  Uma maneira de contornar esse problema é implementar os métodos "privados" sem declará-los na interface. \\
-  Os métodos ainda poderam ser chamados, mas sua existência está escondida. \\
-  Ainda nesse assunto, o Objective-C só implementa heranças publicas.
+  Uma maneira de implementar um métodos como "privados" é não declará-los na interface. \\
+  Os métodos ainda poderam ser chamados, mas sua existência está escondida.
 \end{frame}
 
 %-------------------------------------
@@ -233,7 +215,7 @@
 
 \begin{frame}
   Em C++ podemos declarar atributos ou métodos com o modificador \textit{static}. Assim eles passam a ser de classe. \\
-  O Objective-C não tem suporte direto a essa ideia, mas é possível atingir o mesmo resultado criando uma variável global 
+  O Objective-C não tem suporte a atributos de classe, mas é possível atingir o mesmo resultado criando uma variável global 
   na implementação e utilizando seus métodos para modificar essa variável.
 \end{frame}
 
@@ -292,6 +274,27 @@
   No C++ a assinatura de um método é composta do seu nome e parâmetros ( alêm da presença do modificador \textit{const} ). \\
   Dado isso o C++ consegue implementar o overload de métodos. \\
   O Objective-C também consegue, mas para tanto os métodos devem ter labels diferentes para seus atributos.
+\end{frame}
+
+%-------------------------------------
+\subsection{Alocação}
+%-------------------------------------
+
+\begin{frame}[fragile]
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+        \begin{center}
+            C++
+        \end{center}
+        Objetos podem ser alocados na pilha como uma variável local, ou dinamicamente com o operador \textit{new}.
+    \end{column}
+    \begin{column}{.5\textwidth}
+        \begin{center}
+            Objective-C
+        \end{center}
+        Todos os objetos são alocados dinamicamente, enviando a mensagem \textit{alloc} para a classe.
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \end{document}
