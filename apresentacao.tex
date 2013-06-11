@@ -426,8 +426,8 @@
 \end{frame}
 
 %-------------------------------------
+\section{4. Alocação e Inicialização}
 \subsection{Alocação}
-\section{Alocação e Inicialização}
 %-------------------------------------
 
 \subsection{Alocação}
@@ -549,6 +549,31 @@
         A partir do Objective-C 2.0, existe um coletor de lixo automático que pode ser ativado.
     \end{column}
   \end{columns}
+\end{frame}
+
+\section{5. Toques Finais}
+\subsection{Templates}
+
+\begin{frame}[fragile]
+  Uma ferramente exclusiva de C++ é a programação genérica com \textit{templates}. \\
+  Com ela, é possível escrever uma função ou classe em cima de um tipo qualquer, permitindo uma flexibilidade maior, mas mantendo a segurança de tipos. \\
+  Um exemplo de função template é uma função max.
+
+  \lstset{language=C++,basicstyle=\tiny}
+  \begin{lstlisting}
+    template<typename T>
+    T max(T a, T b) {
+        return (b < a) ? a : b;
+    }
+    
+    main() {
+        int i = max(5, 4); // Chama max<int>
+        float f = max(5.0f, 4.0f); // Chama max<float>
+        
+        Point2D p = max(Point2D(1, 1), Point2D(4, 6));
+        // Chamaria max<Point2D>, mas a classe Point2D nao tem o operador <
+    }
+  \end{lstlisting}
 \end{frame}
 
 \end{document}
