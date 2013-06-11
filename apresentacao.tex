@@ -311,6 +311,113 @@
 \end{frame}
 
 %-------------------------------------
+\section{3. Herança}
+%-------------------------------------
+
+\begin{frame}
+  Como uma boa linguagem orientada a objetos, tanto o C++ quanto o Objective-C tem herança. \\
+  A maior diferença é a herança múltipla do C++, que não está presente no Objective-C.
+\end{frame}
+
+\begin{frame}
+  Todos os métodos do Objective-C são virtuais por padrão. \\
+  No C++, o modificador \textit{virtual} deve ser usado para virtualizar um método. \\
+  Um método virtual pode ser sobrescrito por uma classe filha.
+\end{frame}
+
+%-------------------------------------
+\subsection{Interfaces}
+%-------------------------------------
+
+\begin{frame}[fragile]
+  O C++ não tem interfaces, mas podemos chegar nesse resultado implementando uma classe abstrata que não defina nenhum método. \\
+    \lstset{language=C++,basicstyle=\scriptsize}
+  \begin{lstlisting}
+    class MouseListener
+  {
+    public:
+    virtual bool mousePressed(void) = 0; //pure virtual method
+    virtual bool mouseClicked(void) = 0; //pure virtual method
+  };
+  
+  class Foo : public MouseListener {...}
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  O Objective-C usa um artificio chamado de \textit{protocol} para implementar interfaces.
+      \lstset{language=C++,basicstyle=\scriptsize}
+  \begin{lstlisting}
+  @protocol MouseListener
+    -(BOOL) mousePressed;
+    -(BOOL) mouseClicked;
+  @end
+  
+  @interface Foo : NSObject <MouseListener> 
+    {...}
+  @end
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  Ainda é possível definir métodos opcionais num \textit{protocol}:
+        \lstset{language=C++,basicstyle=\scriptsize}
+  \begin{lstlisting}
+  @protocol Slave
+  
+  @required
+    -(void) makeCoffee;
+    -(void) duplicateDocument:(Document*)document;
+  
+  @optional
+    -(void) sweep;
+
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+  O \textit{protocol}, quando usado junto com objetos distribuidos, apresenta algumas palavras reservadas novas:
+  \begin{itemize}
+    \item[\textit{in}] - Parâmetro de input.
+    \item[\textit{out}] - Parâmetro de output.
+    \item[\textit{inout}] - Parâmetro de input e output.
+    \item[\textit{bycopy}] - Parâmetro é copiado.
+    \item[\textit{byref}] - Parâmetro é referênciado.
+    \item[\textit{oneway}] - O método é assincrono.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  Ainda temos as \textit{categories} no Objective-C. \\
+  Elas são utilizadas como \textit{protocols} informais. O programador pode agrupar métodos com a mesma finalidade numa mesma categoria e adicionar essa categoria
+  numa classe. A utilidade principal é criar uma documentação para o programa. As categorias são ignoradas pelo compilador.
+\end{frame}
+
+\begin{frame}[fragile]
+  Uma última resalva sobre \textit{protocols}, \textit{categories} e herança em Objective-C. \\
+  Não é possível herdar uma classe e definir uma categoria na mesma linha, como por exemplo:
+  \lstset{language=C++,basicstyle=\scriptsize}
+  \begin{lstlisting}
+  @interface Foo1 : SuperClass <Protocol1, Protocol2, ... > //ok
+  @end
+  
+  @interface Foo2 (Category) <Protocol1, Protocol2, ... > //ok
+  @end
+  
+  //below : compilation error
+  @interface Foo3 (Category) : SuperClass <Protocol1, Protocol2, ... >
+  @end
+  
+  //a solution :
+  @interface Foo3 : SuperClass <Protocol1, Protocol2, ... > //1
+  @end
+  
+  @interface Foo3 (Category) //2
+  @end
+  \end{lstlisting}
+\end{frame}
+
+%-------------------------------------
 \subsection{Alocação}
 %-------------------------------------
 
