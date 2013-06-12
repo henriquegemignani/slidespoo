@@ -426,8 +426,8 @@
 \end{frame}
 
 %-------------------------------------
+\section{4. Alocação e Inicialização}
 \subsection{Alocação}
-\section{Alocação e Inicialização}
 %-------------------------------------
 
 \subsection{Alocação}
@@ -549,6 +549,50 @@
         A partir do Objective-C 2.0, existe um coletor de lixo automático que pode ser ativado.
     \end{column}
   \end{columns}
+\end{frame}
+
+\section{5. Toques Finais}
+
+\subsection{Templates}
+\begin{frame}[fragile]
+  Uma ferramente exclusiva de C++ é a programação genérica com \textit{templates}. \\
+  Com ela, é possível escrever uma função ou classe em cima de um tipo qualquer, permitindo uma flexibilidade maior, mas mantendo a segurança de tipos. \\
+  Um exemplo de função template é uma função max.
+
+  \lstset{language=C++,basicstyle=\tiny}
+  \begin{lstlisting}
+    template<typename T>
+    T max(T a, T b) {
+        return (b < a) ? a : b;
+    }
+    
+    main() {
+        int i = max(5, 4); // Chama max<int>
+        float f = max(5.0f, 4.0f); // Chama max<float>
+        
+        Point2D p = max(Point2D(1, 1), Point2D(4, 6));
+        // Chamaria max<Point2D>, mas a classe Point2D nao tem o operador <
+    }
+  \end{lstlisting}
+\end{frame}
+
+\subsection{STL}
+\begin{frame}
+  C++ possui também uma vasta bibloteca padrão, chamada de Standard Template Library (STL). 
+  Ela fornece 4 componentes: algorítmos, contêineres, funcional e iteradores.
+  
+  \vfill
+  
+  Os contêineres são classes templates, podendo mudar qual o tipo do objeto armazenado. Alguns exemplos: vetores, listas ligadas, vetores associativos, tabela de dispersão (C++11).
+  
+  \vfill
+  
+  Algorítmos temos funções como max, min, sort.
+\end{frame}
+ 
+\begin{frame}  
+  O módulo funcional inclui várias classes que implementam o operador de chamada de função. Instâncias de tais classes são objetos funções, usados para controlar o funcionamento de alguns contêineres e algorítimos. \\
+  Com C++11, também tem a classe \textit{function}, que é uma forma conveniente de armazenar qualquer coisa que seja chamável com uma certa assinatura, seja uma função de C, um objeto com operador() ou um método de uma classe. 
 \end{frame}
 
 \end{document}
