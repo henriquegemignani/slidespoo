@@ -180,7 +180,7 @@
 %-------------------------------------
 
 \begin{frame}[fragile]
-  No C++ podemos usar uma classe não completamente definida usando uma declaração avançada dela. \\
+  No C++ podemos usar uma classe que não foi totalmente definida utilizando uma declaração avançada dela. \\
   \lstset{language=C++,basicstyle=\tiny}
   \begin{lstlisting}
     class Bar; //forward declaration 
@@ -212,8 +212,8 @@
 \end{frame}
 
 \begin{frame}
-  Uma maneira de implementar um métodos como "privados" é não declará-los na interface. \\
-  Os métodos ainda poderam ser chamados, mas sua existência está escondida.
+  Uma maneira de implementar um método como "privado" é não declará-lo na interface. \\
+  O método ainda poderá ser chamado, mas sua existência está escondida.
 \end{frame}
 
 %-------------------------------------
@@ -593,6 +593,23 @@
 \begin{frame}  
   O módulo funcional inclui várias classes que implementam o operador de chamada de função. Instâncias de tais classes são objetos funções, usados para controlar o funcionamento de alguns contêineres e algorítimos. \\
   Com C++11, também tem a classe \textit{function}, que é uma forma conveniente de armazenar qualquer coisa que seja chamável com uma certa assinatura, seja uma função de C, um objeto com operador() ou um método de uma classe. 
+\end{frame}
+
+\subsection{Cocoa}
+\begin{frame}
+  O equivalente da STL para o Objective-C é o \textit{Cocoa}. \\
+  O \textit{Cocoa} é uma API desenvolvida pela Apple para o sistema operacional Mac. \\
+  Podemos acessar o código do Cocoa em outras linguagens, como \textbf{Python}, \textbf{Ruby} ou \textbf{Perl} atráves
+  de bridges.
+\end{frame}
+
+\begin{frame}
+  O Cocoa é composto de 3 frameworks:
+  \begin{itemize}
+    \item Foundation Kit - Implementa conjuntos, iteradores, computação distribuida...
+    \item Application Kit - Criação de GUIs.
+    \item Core Data - Criação de um ambiente persistido.
+  \end{itemize}
 \end{frame}
 
 \end{document}
